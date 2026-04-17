@@ -1,27 +1,21 @@
 @import "tailwindcss";
 
-/* ═══ COURT HEAT — Light Mode ═══
-   Contrast targets (WCAG AA):
-   - text-primary on bg-base:   ~15:1 ✓
-   - text-secondary on bg-base: ~6.5:1 ✓ (was 3.8)
-   - text-muted on bg-base:     ~4.6:1 ✓ (was 2.3!)
-   - accent on white:           ~3.3:1 ✓ (large text/UI only)
-*/
+/* ═══ MIDNIGHT GOLD — Light Mode ═══ */
 :root {
-  --bg-base: #faf8f5;
+  --bg-base: #f8f9fb;
   --bg-surface: #ffffff;
-  --bg-muted: #efeae4;
-  --bg-accent-soft: rgba(255, 107, 53, 0.08);
+  --bg-muted: #eef0f4;
+  --bg-accent-soft: rgba(245, 158, 11, 0.08);
 
-  --text-primary: #1a1412;
-  --text-secondary: #4a3f35;
-  --text-muted: #70655a;
-  --text-invert: #ffffff;
+  --text-primary: #111827;
+  --text-secondary: #4b5563;
+  --text-muted: #6b7280;
+  --text-invert: #111827;
 
-  --accent: #9a3d15;
-  --accent-hover: #833412;
-  --accent-soft: rgba(154, 61, 21, 0.1);
-  --accent-glow: rgba(154, 61, 21, 0.2);
+  --accent: #b45309;
+  --accent-hover: #92400e;
+  --accent-soft: rgba(180, 83, 9, 0.1);
+  --accent-glow: rgba(180, 83, 9, 0.2);
 
   --success: #15803d;
   --success-soft: rgba(21, 128, 61, 0.08);
@@ -30,38 +24,32 @@
   --destructive: #dc2626;
   --destructive-soft: rgba(220, 38, 38, 0.06);
 
-  --border: #d5cdc3;
-  --border-hover: #bfb5a9;
-  --ring: rgba(154, 61, 21, 0.35);
+  --border: #d1d5db;
+  --border-hover: #9ca3af;
+  --ring: rgba(180, 83, 9, 0.35);
 
-  --shadow-sm: 0 1px 3px rgba(26, 20, 18, 0.06);
-  --shadow-md: 0 4px 12px rgba(26, 20, 18, 0.08);
-  --shadow-lg: 0 8px 30px rgba(26, 20, 18, 0.12);
-  --shadow-glow: 0 0px 20px rgba(154, 61, 21, 0.15);
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 8px 30px rgba(0, 0, 0, 0.12);
+  --shadow-glow: 0 0px 20px rgba(245, 158, 11, 0.15);
 }
 
-/* ═══ COURT HEAT — Dark Mode ═══
-   Contrast targets (WCAG AA):
-   - text-primary on bg-base:   ~14:1 ✓
-   - text-secondary on bg-base: ~7:1 ✓ (was 4.1)
-   - text-muted on bg-base:     ~4.8:1 ✓ (was 2.5!)
-   - accent on bg-surface:      ~3.5:1 ✓ (large text/UI)
-*/
+/* ═══ MIDNIGHT GOLD — Dark Mode ═══ */
 .dark {
-  --bg-base: #141210;
-  --bg-surface: #1e1b18;
-  --bg-muted: #2a2622;
-  --bg-accent-soft: rgba(255, 127, 80, 0.1);
+  --bg-base: #0a0e1a;
+  --bg-surface: #111827;
+  --bg-muted: #1e2538;
+  --bg-accent-soft: rgba(245, 158, 11, 0.1);
 
-  --text-primary: #f5f0e8;
-  --text-secondary: #c4b8a8;
-  --text-muted: #918478;
-  --text-invert: #141210;
+  --text-primary: #f0f2f8;
+  --text-secondary: #9ca3b4;
+  --text-muted: #6b7280;
+  --text-invert: #0a0e1a;
 
-  --accent: #ff7f50;
-  --accent-hover: #ff9a73;
-  --accent-soft: rgba(255, 127, 80, 0.14);
-  --accent-glow: rgba(255, 127, 80, 0.2);
+  --accent: #F59E0B;
+  --accent-hover: #D97706;
+  --accent-soft: rgba(245, 158, 11, 0.12);
+  --accent-glow: rgba(245, 158, 11, 0.2);
 
   --success: #4ade80;
   --success-soft: rgba(74, 222, 128, 0.1);
@@ -70,14 +58,14 @@
   --destructive: #f87171;
   --destructive-soft: rgba(248, 113, 113, 0.12);
 
-  --border: #3a3530;
-  --border-hover: #4d4740;
-  --ring: rgba(255, 127, 80, 0.4);
+  --border: #1e2538;
+  --border-hover: #2d3548;
+  --ring: rgba(245, 158, 11, 0.4);
 
-  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.25);
-  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.3);
-  --shadow-lg: 0 8px 30px rgba(0, 0, 0, 0.4);
-  --shadow-glow: 0 0px 24px rgba(255, 127, 80, 0.15);
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.35);
+  --shadow-lg: 0 8px 30px rgba(0, 0, 0, 0.45);
+  --shadow-glow: 0 0px 24px rgba(245, 158, 11, 0.15);
 }
 
 @theme inline {
