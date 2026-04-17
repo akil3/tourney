@@ -2,8 +2,8 @@ import Link from "next/link";
 import { prisma } from "@/lib/prisma";
 import { Card } from "@/components/ui/Card";
 import { Badge } from "@/components/ui/Badge";
-import { Button } from "@/components/ui/Button";
-import { Trophy, Plus, Users, Swords } from "lucide-react";
+import { Trophy, Users, Swords } from "lucide-react";
+import { NewTournamentButton } from "@/components/tournament/NewTournamentButton";
 
 const statusVariant = { DRAFT: "pending" as const, IN_PROGRESS: "in-progress" as const, COMPLETED: "completed" as const };
 
@@ -16,7 +16,7 @@ export default async function HomePage() {
           <h1 className="font-display text-[clamp(40px,7vw,72px)] tracking-wider text-[var(--text-primary)] leading-none">TOURNAMENTS</h1>
           <p className="text-[15px] text-[var(--text-muted)] mt-2">Manage your volleyball competitions</p>
         </div>
-        <Link href="/tournaments/new"><Button><Plus size={16} strokeWidth={2.5} /> New</Button></Link>
+        <NewTournamentButton />
       </div>
       {tournaments.length === 0 ? (
         <Card className="text-center py-20 border-dashed">
@@ -24,8 +24,7 @@ export default async function HomePage() {
             <Trophy size={28} className="text-[var(--accent)]" strokeWidth={1.5} />
           </div>
           <p className="font-display text-[28px] tracking-wider text-[var(--text-secondary)] mb-2">NO TOURNAMENTS YET</p>
-          <p className="text-[15px] text-[var(--text-muted)] mb-8">Create your first tournament to get started</p>
-          <Link href="/tournaments/new"><Button size="lg">Create Tournament</Button></Link>
+          <p className="text-[15px] text-[var(--text-muted)] mb-8">Check back soon for upcoming tournaments</p>
         </Card>
       ) : (
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">

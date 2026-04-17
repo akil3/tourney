@@ -1,9 +1,14 @@
 "use client";
-import { useState } from "react"; import { useRouter } from "next/navigation"; import { Input } from "@/components/ui/Input"; import { Select } from "@/components/ui/Select"; import { Button } from "@/components/ui/Button"; import { Card } from "@/components/ui/Card";
+import { useState, useEffect } from "react"; import { useRouter } from "next/navigation"; import { Input } from "@/components/ui/Input"; import { Select } from "@/components/ui/Select"; import { Button } from "@/components/ui/Button"; import { Card } from "@/components/ui/Card"; import { useRole } from "@/lib/hooks/useRole";
 const formatOptions = [{ value: "POOL_PLAY", label: "Pool Play + Elimination" }, { value: "SINGLE_ELIMINATION", label: "Single Elimination" }, { value: "DOUBLE_ELIMINATION", label: "Double Elimination" }, { value: "ROUND_ROBIN", label: "Round Robin" }];
 
 export default function NewTournamentPage() {
-  const router = useRouter(); const [loading, setLoading] = useState(false); const [error, setError] = useState("");
+  const router = useRouter(); const { isSuperAdmin, isLoading } = useRole(); const [loading, setLoading] = useState(false); const [error, setError] = useState("");
+
+  useEffect(() => { if (!isLoading && !isSuperAdmin) router.push("/"); }, [isLoading, isSuperAdmin, router]);
+  if (isLoading) return <div className="text-[15px] text-[var(--text-muted)]">Loading...</div>;
+  if (!isSuperAdmin) return null;
+
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) { e.preventDefault(); setError(""); setLoading(true); const fd = new FormData(e.currentTarget); const body = { name: fd.get("name"), venue: fd.get("venue") || null, format: fd.get("format"), settings: { setsToWin: Number(fd.get("setsToWin")) || 2, pointsToWin: Number(fd.get("pointsToWin")) || 25, decidingSetPoints: Number(fd.get("decidingSetPoints")) || 15, winBy: Number(fd.get("winBy")) || 2, pointCap: fd.get("pointCap") ? Number(fd.get("pointCap")) : null, poolCount: Number(fd.get("poolCount")) || 2, advancePerPool: Number(fd.get("advancePerPool")) || 2 } }; const res = await fetch("/api/tournaments", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(body) }); if (!res.ok) { const data = await res.json(); setError(data.error || "Failed"); setLoading(false); return; } const t = await res.json(); router.push(`/tournaments/${t.id}`); }
   return (
     <div className="max-w-xl mx-auto">
