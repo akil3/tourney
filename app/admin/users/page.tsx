@@ -11,6 +11,7 @@ import { useRole } from "@/lib/hooks/useRole";
 interface UserItem { id: string; name: string | null; email: string; role: string; createdAt: string; _count: { captainOf: number; adminOf: number } }
 
 const roleOptions = ["player", "captain", "superadmin"];
+const roleBadge: Record<string, "default" | "completed" | "in-progress"> = { player: "default", captain: "in-progress", superadmin: "completed" };
 
 export default function UsersPage() {
   const { isSuperAdmin, userId } = useRole();
@@ -43,6 +44,15 @@ export default function UsersPage() {
       <div className="flex items-center justify-between mb-6">
         <h2 className="font-display text-[28px] tracking-wider text-[var(--text-primary)] leading-none">USERS <span className="text-[var(--accent)]">{users.length}</span></h2>
       </div>
+
+      {/* Role legend */}
+      <div className="flex flex-wrap gap-3 mb-4 text-[13px] text-[var(--text-muted)]">
+        <span><Badge variant="default">player</Badge> — view only</span>
+        <span><Badge variant="in-progress">captain</Badge> — manages own team roster</span>
+        <span><Badge variant="completed">superadmin</Badge> — full platform access</span>
+        <span><Shield size={12} className="inline text-[var(--accent)]" /> — tournament admin (per-tournament, assigned in tournament settings)</span>
+      </div>
+
       <div className="mb-4 relative">
         <Search size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-[var(--text-muted)]" />
         <Input placeholder="Search users..." value={search} onChange={e => setSearch(e.target.value)} className="pl-10" />
@@ -58,7 +68,10 @@ export default function UsersPage() {
                     {(user.name?.[0] || user.email[0]).toUpperCase()}
                   </div>
                   <div className="min-w-0">
-                    <p className="text-[15px] font-semibold text-[var(--text-primary)] truncate">{user.name || "No name"}</p>
+                    <div className="flex items-center gap-2">
+                      <p className="text-[15px] font-semibold text-[var(--text-primary)] truncate">{user.name || "No name"}</p>
+                      {user._count.adminOf > 0 && <Badge><Shield size={10} className="mr-1" />{user._count.adminOf} tourney</Badge>}
+                    </div>
                     <p className="text-[13px] text-[var(--text-muted)] truncate">{user.email}</p>
                   </div>
                 </div>
@@ -66,7 +79,6 @@ export default function UsersPage() {
                   <select value={user.role} onChange={e => changeRole(user.id, e.target.value)} disabled={user.id === userId} className="bg-[var(--bg-base)] border border-[var(--border)] rounded-lg px-2 py-1 text-[13px] text-[var(--text-primary)] focus:border-[var(--accent)] focus:outline-none">
                     {roleOptions.map(r => <option key={r} value={r}>{r}</option>)}
                   </select>
-                  {user._count.adminOf > 0 && <Badge><Shield size={10} className="mr-1" />{user._count.adminOf}</Badge>}
                   {user.id !== userId && (
                     <button onClick={() => deleteUser(user.id, user.email)} className="text-[var(--text-muted)] hover:text-[var(--destructive)] transition-colors p-2 rounded-lg hover:bg-[var(--destructive-soft)]">
                       <Trash2 size={14} />
