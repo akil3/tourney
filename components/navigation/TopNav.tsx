@@ -58,7 +58,7 @@ export function TopNav({ role, userName }: { role?: string; userName?: string })
               </button>
             </div>
           ) : (
-            <Link href="/auth/login" className="px-4 py-1.5 rounded-lg text-[13px] font-semibold bg-[var(--accent)] text-white hover:bg-[var(--accent-hover)] transition-colors">Sign in</Link>
+            <Link href="/auth/login" className="px-4 py-1.5 rounded-lg text-[13px] font-semibold bg-[var(--accent)] text-[var(--text-invert)] hover:bg-[var(--accent-hover)] transition-colors">Sign in</Link>
           )}
         </div>
       </div>

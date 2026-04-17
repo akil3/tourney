@@ -8,7 +8,7 @@ type Size = "sm" | "md" | "lg";
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> { variant?: Variant; size?: Size; }
 
 const variants: Record<Variant, string> = {
-  primary: "bg-[var(--accent)] text-white hover:bg-[var(--accent-hover)] shadow-[var(--shadow-sm)] hover:shadow-[var(--shadow-md)]",
+  primary: "bg-[var(--accent)] text-[var(--text-invert)] hover:bg-[var(--accent-hover)] shadow-[var(--shadow-sm)] hover:shadow-[var(--shadow-md)]",
   secondary: "bg-[var(--bg-surface)] text-[var(--text-primary)] border border-[var(--border)] hover:border-[var(--border-hover)] hover:bg-[var(--bg-muted)]",
   ghost: "text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-muted)]",
   destructive: "bg-[var(--destructive-soft)] text-[var(--destructive)] hover:bg-[var(--destructive)] hover:text-white",

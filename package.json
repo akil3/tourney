@@ -37,14 +37,17 @@
     ]
   },
   "devDependencies": {
+    "@axe-core/playwright": "^4.11.2",
     "@tailwindcss/postcss": "^4",
     "@types/bcryptjs": "^3.0.0",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "@types/serviceworker": "^0.0.194",
+    "axe-core": "^4.11.3",
     "eslint": "^9",
     "eslint-config-next": "16.2.4",
+    "playwright": "^1.59.1",
     "sharp": "^0.34.5",
     "tailwindcss": "^4",
     "tsx": "^4.21.0",

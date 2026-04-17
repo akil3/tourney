@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react"; import { signIn } from "next-auth/react"; import { useRouter } from "next/navigation"; import Link from "next/link"; import { Input } from "@/components/ui/Input"; import { Button } from "@/components/ui/Button"; import { Flame } from "lucide-react";
+import { useState } from "react"; import { signIn } from "next-auth/react"; import { useRouter } from "next/navigation"; import Link from "next/link"; import { Input } from "@/components/ui/Input"; import { Button } from "@/components/ui/Button"; import Image from "next/image";
 
 export default function LoginPage() {
   const router = useRouter(); const [email, setEmail] = useState(""); const [password, setPassword] = useState(""); const [error, setError] = useState(""); const [loading, setLoading] = useState(false);
@@ -7,7 +7,7 @@ export default function LoginPage() {
   return (
     <div className="min-h-screen flex items-center justify-center px-4 bg-[var(--bg-base)]">
       <div className="w-full max-w-sm">
-        <div className="flex justify-center mb-6"><div className="w-14 h-14 bg-[var(--accent)] rounded-2xl flex items-center justify-center shadow-[var(--shadow-glow)]"><Flame size={28} className="text-white" strokeWidth={2.5} /></div></div>
+        <div className="flex justify-center mb-6"><Image src="/icons/icon-96.png" alt="Tourney" width={56} height={56} className="rounded-2xl shadow-[var(--shadow-md)]" /></div>
         <h1 className="font-display text-[48px] tracking-wider text-[var(--text-primary)] text-center leading-none mb-1">SIGN IN</h1>
         <p className="text-[15px] text-[var(--text-muted)] text-center mb-8">Welcome back to Tourney</p>
         <form onSubmit={handleSubmit} className="flex flex-col gap-4">

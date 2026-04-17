@@ -1,10 +1,10 @@
 type BadgeVariant = "default" | "completed" | "in-progress" | "pending" | "destructive";
 
 const variants: Record<BadgeVariant, string> = {
-  default: "bg-[var(--bg-muted)] text-[var(--text-secondary)]",
+  default: "bg-[var(--bg-muted)] text-[var(--text-secondary)] border border-[var(--border)]",
   completed: "bg-[var(--success-soft)] text-[var(--success)]",
-  "in-progress": "bg-[var(--accent-soft)] text-[var(--accent)] live-pulse",
-  pending: "bg-[var(--bg-muted)] text-[var(--text-muted)]",
+  "in-progress": "bg-[var(--accent-soft)] text-[var(--accent)] live-pulse font-bold",
+  pending: "bg-[var(--bg-muted)] text-[var(--text-secondary)]",
   destructive: "bg-[var(--destructive-soft)] text-[var(--destructive)]",
 };
 
