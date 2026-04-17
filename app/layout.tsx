@@ -31,8 +31,10 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   return (
     <html lang="en" className={`${dmSans.variable} ${bebas.variable} h-full`} suppressHydrationWarning>
       <head>
-        <link rel="icon" type="image/png" sizes="32x32" href="/icons/icon-32.png" />
-        <link rel="icon" type="image/png" sizes="16x16" href="/icons/icon-16.png" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/icons/icon-32.png" media="(prefers-color-scheme: light)" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/icons/icon-32-dark.png" media="(prefers-color-scheme: dark)" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/icons/icon-16.png" media="(prefers-color-scheme: light)" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/icons/icon-16-dark.png" media="(prefers-color-scheme: dark)" />
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
       </head>
       <body className="min-h-full font-sans antialiased">
