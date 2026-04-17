@@ -10,9 +10,11 @@ export default async function TournamentLayout({
   const { id } = await params;
 
   return (
-    <div className="-mx-4 sm:-mx-6 lg:-mx-8 -mt-6">
-      <TournamentTabs tournamentId={id} />
-      <div className="px-4 sm:px-6 lg:px-8 py-6">{children}</div>
+    <div>
+      <div className="-mx-4 sm:-mx-6 lg:-mx-8 -mt-6 sm:-mt-8">
+        <TournamentTabs tournamentId={id} />
+      </div>
+      <div className="py-6 sm:py-8">{children}</div>
     </div>
   );
 }
