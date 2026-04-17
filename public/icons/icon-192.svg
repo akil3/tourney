@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="192" height="192" viewBox="0 0 192 192">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#FF6B35"/>
+      <stop offset="100%" stop-color="#E84E1B"/>
+    </linearGradient>
+    <linearGradient id="ball" x1="0.3" y1="0" x2="0.7" y2="1">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#f0e8dd"/>
+    </linearGradient>
+  </defs>
+  <!-- Background -->
+  <rect width="192" height="192" rx="44" fill="url(#bg)"/>
+  <!-- Volleyball -->
+  <circle cx="96" cy="88" r="42" fill="url(#ball)" opacity="0.95"/>
+  <!-- Volleyball seam lines -->
+  <path d="M54 88 C70 72, 122 72, 138 88" fill="none" stroke="#FF6B35" stroke-width="2.5" opacity="0.5"/>
+  <path d="M54 88 C70 104, 122 104, 138 88" fill="none" stroke="#FF6B35" stroke-width="2.5" opacity="0.5"/>
+  <path d="M96 46 C80 62, 80 114, 96 130" fill="none" stroke="#FF6B35" stroke-width="2.5" opacity="0.5"/>
+  <!-- Flame accent underneath -->
+  <path d="M72 138 Q78 126, 84 132 Q90 120, 96 130 Q102 120, 108 132 Q114 126, 120 138 Q108 148, 96 146 Q84 148, 72 138Z" fill="white" opacity="0.9"/>
+  <!-- Brand text -->
+  <text x="96" y="170" text-anchor="middle" font-family="sans-serif" font-weight="700" font-size="14" fill="white" letter-spacing="4" opacity="0.9">TOURNEY</text>
+</svg>
