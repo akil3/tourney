@@ -1,0 +1,98 @@
+@import "tailwindcss";
+
+/* ═══ COURT HEAT — Light Mode ═══ */
+:root {
+  --bg-base: #faf8f5;
+  --bg-surface: #ffffff;
+  --bg-muted: #f3f0ec;
+  --bg-accent-soft: rgba(255, 107, 53, 0.06);
+
+  --text-primary: #1a1412;
+  --text-secondary: #6b5e52;
+  --text-muted: #a89888;
+  --text-invert: #ffffff;
+
+  --accent: #FF6B35;
+  --accent-hover: #e85a28;
+  --accent-soft: rgba(255, 107, 53, 0.1);
+  --accent-glow: rgba(255, 107, 53, 0.25);
+
+  --success: #16a34a;
+  --success-soft: rgba(22, 163, 74, 0.08);
+  --warning: #d97706;
+  --warning-soft: rgba(217, 119, 6, 0.08);
+  --destructive: #dc2626;
+  --destructive-soft: rgba(220, 38, 38, 0.06);
+
+  --border: #e8e2db;
+  --border-hover: #d4ccc2;
+  --ring: rgba(255, 107, 53, 0.3);
+
+  --shadow-sm: 0 1px 2px rgba(26, 20, 18, 0.04);
+  --shadow-md: 0 4px 12px rgba(26, 20, 18, 0.06);
+  --shadow-lg: 0 8px 30px rgba(26, 20, 18, 0.08);
+  --shadow-glow: 0 0px 20px rgba(255, 107, 53, 0.12);
+}
+
+/* ═══ COURT HEAT — Dark Mode ═══ */
+.dark {
+  --bg-base: #141210;
+  --bg-surface: #1c1916;
+  --bg-muted: #252220;
+  --bg-accent-soft: rgba(255, 107, 53, 0.08);
+
+  --text-primary: #f5efe6;
+  --text-secondary: #a89888;
+  --text-muted: #6b5e52;
+  --text-invert: #1a1412;
+
+  --accent: #FF6B35;
+  --accent-hover: #ff8555;
+  --accent-soft: rgba(255, 107, 53, 0.12);
+  --accent-glow: rgba(255, 107, 53, 0.2);
+
+  --success: #34d399;
+  --success-soft: rgba(52, 211, 153, 0.1);
+  --warning: #fbbf24;
+  --warning-soft: rgba(251, 191, 36, 0.1);
+  --destructive: #f87171;
+  --destructive-soft: rgba(248, 113, 113, 0.1);
+
+  --border: #2e2a26;
+  --border-hover: #3d3832;
+  --ring: rgba(255, 107, 53, 0.4);
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.2);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.25);
+  --shadow-lg: 0 8px 30px rgba(0, 0, 0, 0.35);
+  --shadow-glow: 0 0px 24px rgba(255, 107, 53, 0.15);
+}
+
+@theme inline {
+  --color-base: var(--bg-base);
+  --color-surface: var(--bg-surface);
+  --color-muted-bg: var(--bg-muted);
+  --color-foreground: var(--text-primary);
+  --color-secondary: var(--text-secondary);
+  --color-muted: var(--text-muted);
+  --color-accent: var(--accent);
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --font-sans: var(--font-dm-sans);
+  --font-display: var(--font-bebas);
+}
+
+body {
+  background: var(--bg-base);
+  color: var(--text-primary);
+  transition: background-color 0.2s, color 0.2s;
+}
+
+@keyframes livePulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
+.live-pulse { animation: livePulse 1.5s ease-in-out infinite; }
+
+::-webkit-scrollbar { width: 5px; height: 5px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 99px; }
