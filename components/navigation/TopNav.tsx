@@ -4,7 +4,8 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useTheme } from "next-themes";
 import { signOut } from "next-auth/react";
-import { Flame, Sun, Moon, LogOut, User } from "lucide-react";
+import { Sun, Moon, LogOut, User } from "lucide-react";
+import Image from "next/image";
 
 const navItems = [
   { href: "/", label: "Dashboard" },
@@ -21,9 +22,7 @@ export function TopNav({ role, userName }: { role?: string; userName?: string })
         {/* Logo + Nav */}
         <div className="flex items-center gap-8">
           <Link href="/" className="flex items-center gap-2.5">
-            <div className="w-8 h-8 bg-[var(--accent)] rounded-lg flex items-center justify-center shadow-[var(--shadow-md)]">
-              <Flame size={16} className="text-white" strokeWidth={2.5} />
-            </div>
+            <Image src="/icons/icon-64.png" alt="Tourney" width={32} height={32} className="rounded-lg" />
             <span className="font-display text-[24px] tracking-widest text-[var(--text-primary)] leading-none mt-0.5">TOURNEY</span>
           </Link>
           <nav className="flex items-center gap-1">
