@@ -11,9 +11,21 @@ async function main() {
   const context = await browser.newContext();
   const page = await context.newPage();
 
+  // Get first tournament ID
+  const tournamentsRes = await (await fetch("http://localhost:3000/api/tournaments")).json();
+  const tid = tournamentsRes[0]?.id;
+
   const pages = [
     { url: "http://localhost:3000", name: "Home" },
     { url: "http://localhost:3000/auth/login", name: "Login" },
+    { url: "http://localhost:3000/admin", name: "Admin Dashboard" },
+    ...(tid ? [
+      { url: `http://localhost:3000/tournaments/${tid}`, name: "Tournament Overview" },
+      { url: `http://localhost:3000/tournaments/${tid}/schedule`, name: "Schedule" },
+      { url: `http://localhost:3000/tournaments/${tid}/standings`, name: "Standings" },
+      { url: `http://localhost:3000/tournaments/${tid}/bracket`, name: "Bracket" },
+      { url: `http://localhost:3000/tournaments/${tid}/teams`, name: "Teams" },
+    ] : []),
   ];
 
   for (const { url, name } of pages) {
